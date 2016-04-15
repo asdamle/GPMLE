@@ -32,23 +32,18 @@ end
     dx = bsxfun(@minus,x(1,:)',y(1,:));
     dy = bsxfun(@minus,x(2,:)',y(2,:));
     dr = sqrt(dx.^2/theta1^2 + dy.^2/theta2^2);
-    %dr = sqrt(dx.^2*theta1^2 + dy.^2*theta2^2);
     K = 3*theta3*exp(-sqrt(3)*dr).*dx.^2/theta1^3;
-    %K = -3*theta3*exp(-sqrt(3)*dr).*dx.^2 * theta1;
   end
   function K = Kfun_grad2(x,y)
     dx = bsxfun(@minus,x(1,:)',y(1,:));
     dy = bsxfun(@minus,x(2,:)',y(2,:));
     dr = sqrt(dx.^2/theta1^2 + dy.^2/theta2^2);
-    %dr = sqrt(dx.^2*theta1^2 + dy.^2*theta2^2);
     K  = 3*theta3*exp(-sqrt(3)*dr).*dy.^2/theta2^3;
-    %K = -3*theta3*exp(-sqrt(3)*dr).*dy.^2 * theta2;
   end
   function K = Kfun_grad3(x,y)
     dx = bsxfun(@minus,x(1,:)',y(1,:));
     dy = bsxfun(@minus,x(2,:)',y(2,:));
     dr = sqrt(dx.^2/theta1^2 + dy.^2/theta2^2);
-    %dr = sqrt(dx.^2*theta1^2 + dy.^2*theta2^2);
     K  = (1+sqrt(3)*dr).*exp(-sqrt(3)*dr);
   end
 

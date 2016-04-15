@@ -3,17 +3,17 @@ function [F,A] = matern_kernel_2(params)
 % the included routines to do MLE of the parameters
 %
 %  INPUT:
-%  
+%
 %  params: a length p vector of parameter values
 %
 %  OUTPUT:
-%  
+%
 %  F: (required) A rskelf factorization of the kernel
 %  A: (optional) A matrix of kernel entries, for debugging on small
 %     problems
- 
 
-% build nice parameter 
+
+% build nice parameter
 theta1 = params(1);
 theta2 = params(2);
 
@@ -46,7 +46,6 @@ end
         dx = bsxfun(@minus,x(1,:)',y(1,:));
         dy = bsxfun(@minus,x(2,:)',y(2,:));
         dr = sqrt(dx.^2/theta1^2 + dy.^2/theta2^2);
-        %dr = sqrt(dx.^2*theta1^2 + dy.^2*theta2^2);
         K  = (1+sqrt(3)*dr).*exp(-sqrt(3)*dr);
     end
 

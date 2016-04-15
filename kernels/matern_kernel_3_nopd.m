@@ -20,7 +20,6 @@ end
         dx = bsxfun(@minus,x(1,:)',y(1,:));
         dy = bsxfun(@minus,x(2,:)',y(2,:));
         dr = sqrt(dx.^2/theta1^2 + dy.^2/theta2^2);
-        %dr = sqrt(dx.^2*theta1^2 + dy.^2*theta2^2);
         K  = theta3*(1+sqrt(3)*dr).*exp(-sqrt(3)*dr);
     end
 
