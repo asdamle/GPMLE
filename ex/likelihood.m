@@ -27,7 +27,11 @@ end
 F = Ffun(theta);
 
 % Compute objective function (up to affine transformation)
-Finvz   = rskelf_sv_p(F,z);
+if pd
+    Finvz   = rskelf_sv_p(F,z);
+else
+    Finvz   = rskelf_sv_h(F,z);
+end
 
 term1 = -z'*Finvz;
 term2 = -rskelf_logdet(F);
